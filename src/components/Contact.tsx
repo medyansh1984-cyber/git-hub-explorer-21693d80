@@ -17,15 +17,19 @@ export default function Contact() {
       <div className="relative max-w-4xl mx-auto px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center mb-16 reveal">
-          <p className="section-eyebrow-light mb-4">تواصل معنا</p>
-          <h2 className="font-amiri font-bold text-4xl md:text-5xl text-white mb-6">
+          <div className="flex items-baseline justify-center gap-4 mb-4">
+            <span className="section-number-light" aria-hidden="true">04</span>
+            <p className="section-eyebrow-light">تواصل معنا</p>
+          </div>
+          <h2 className="font-amiri font-bold text-5xl md:text-6xl text-white mb-6 leading-[1.15]">
             لنبدأ الحوار
           </h2>
           <div className="gold-rule mb-8" />
-          <p className="font-cairo text-lg text-white/75 max-w-2xl mx-auto leading-loose">
+          <p className="font-cairo text-lg text-white/75 max-w-2xl mx-auto leading-loose font-light">
             يسعدنا تواصلكم معنا. كل حوارٍ يُثري، وكل يدٍ تُمدّ تُسهم في الأثر.
           </p>
         </div>
+
 
         {/* Contact card — email + website, nothing more */}
         <div className="reveal-scale rounded-[2rem] overflow-hidden
