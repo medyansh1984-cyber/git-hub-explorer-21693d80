@@ -70,10 +70,10 @@ export default function Header({ scrolled }: HeaderProps) {
           <img
             src="/img/logo.png"
             alt="شعار Greenova Life"
-            width={82}
-            height={80}
-            className={`w-auto object-contain transition-all duration-500 ${
-              scrolled ? 'h-16' : 'h-20 drop-shadow-lg'
+            width={160}
+            height={156}
+            className={`logo-crisp w-auto object-contain transition-all duration-500 ${
+              scrolled ? 'h-14' : 'h-20 drop-shadow-lg'
             }`}
           />
         </a>

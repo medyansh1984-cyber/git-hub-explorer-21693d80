@@ -111,22 +111,40 @@
 
   /* Section label */
   .section-eyebrow {
-    @apply font-cairo text-xs font-bold tracking-[0.25em] uppercase text-gold-dark;
+    @apply font-inter text-[11px] font-medium tracking-[0.35em] uppercase text-gold-dark;
   }
 
   .section-eyebrow-light {
-    @apply font-cairo text-xs font-bold tracking-[0.25em] uppercase text-gold-light;
+    @apply font-inter text-[11px] font-medium tracking-[0.35em] uppercase text-gold-light;
+  }
+
+  /* Editorial section number — large serif numeral */
+  .section-number {
+    @apply font-display text-6xl md:text-7xl leading-none text-gold/60 italic;
+  }
+
+  .section-number-light {
+    @apply font-display text-6xl md:text-7xl leading-none text-gold-light/70 italic;
   }
 
   /* Section heading */
   .section-heading {
-    @apply font-amiri font-bold text-green-deep leading-snug;
+    @apply font-amiri font-bold text-green-deep leading-[1.15] tracking-tight;
   }
 
   /* Gold accent rule */
   .gold-rule {
-    @apply w-16 h-0.5 bg-gold-sheen mx-auto rounded-full;
+    @apply w-16 h-px bg-gold-sheen mx-auto;
   }
+
+  /* Crisp logo rendering */
+  .logo-crisp {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
 
   /* Gradient-border card: gradient wrapper + inner surface */
   .gradient-border-card {

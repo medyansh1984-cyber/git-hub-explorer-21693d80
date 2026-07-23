@@ -20,10 +20,10 @@ export default function Footer() {
             <img
               src="/img/logo.png"
               alt="شعار Greenova Life"
-              width={131}
-              height={128}
+              width={262}
+              height={256}
               loading="lazy"
-              className="relative h-32 w-auto object-contain"
+              className="logo-crisp relative h-32 w-auto object-contain"
             />
           </div>
 

@@ -26,15 +26,19 @@ export default function VisionMission() {
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center mb-20 reveal">
-          <p className="section-eyebrow mb-4">الرؤية والرسالة</p>
-          <h2 className="section-heading text-4xl md:text-5xl mb-6">
+          <div className="flex items-baseline justify-center gap-4 mb-4">
+            <span className="section-number" aria-hidden="true">02</span>
+            <p className="section-eyebrow">الرؤية والرسالة</p>
+          </div>
+          <h2 className="section-heading text-5xl md:text-6xl mb-6">
             طريقنا نحو المستقبل
           </h2>
           <div className="gold-rule mb-8" />
-          <p className="font-cairo text-lg text-dark-soft max-w-2xl mx-auto leading-loose">
+          <p className="font-cairo text-lg text-dark-soft max-w-2xl mx-auto leading-loose font-light">
             رؤية واضحة ورسالة إنسانية تُوجّه كل خطوة نخطوها.
           </p>
         </div>
+
 
         {/* Vision + Mission */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
