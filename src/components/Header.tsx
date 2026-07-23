@@ -57,7 +57,7 @@ export default function Header({ scrolled }: HeaderProps) {
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 lg:px-10 grid grid-cols-[auto_1fr_auto] items-center gap-4">
-        {/* ── Logo (right in RTL) ── */}
+        {/* ── Logo (right in RTL) — appears only when scrolled ── */}
         <a
           href="#hero"
           onClick={(e) => {
@@ -65,16 +65,18 @@ export default function Header({ scrolled }: HeaderProps) {
             handleNavClick('#hero');
           }}
           aria-label="Greenova Life — الصفحة الرئيسية"
-          className="rounded-lg"
+          className={`rounded-lg transition-all duration-500 ${
+            scrolled ? 'opacity-100 w-auto' : 'opacity-0 w-0 pointer-events-none overflow-hidden'
+          }`}
+          aria-hidden={!scrolled}
+          tabIndex={scrolled ? 0 : -1}
         >
           <img
             src="/img/logo.png"
             alt="شعار Greenova Life"
             width={160}
             height={156}
-            className={`logo-crisp w-auto object-contain transition-all duration-500 ${
-              scrolled ? 'h-14' : 'h-20 drop-shadow-lg'
-            }`}
+            className="logo-crisp h-14 w-auto object-contain"
           />
         </a>
 

@@ -86,9 +86,9 @@
 
 /* ─── Components ────────────────────────────────────────── */
 @layer components {
-  /* Glass navbar surface */
+  /* Glass navbar surface — no visible border line */
   .glass-nav {
-    @apply bg-cream/70 backdrop-blur-xl border-b border-white/40
+    @apply bg-cream/80 backdrop-blur-xl
            shadow-[0_8px_32px_-16px_rgba(11,61,46,0.25)];
   }
 
