@@ -1,7 +1,6 @@
 import { ArrowDown } from 'lucide-react';
 import { scrollToSection, useParallax } from '../hooks';
-
-const HERO_IMG = 'https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg';
+import heroImg from '../assets/hero-sunrise.jpg';
 
 const PARTICLES = [
   { top: '24%', right: '14%', size: 5, cls: 'animate-drift-slow' },
@@ -20,16 +19,16 @@ export default function Hero() {
       tabIndex={-1}
       className="relative min-h-screen flex items-center justify-center overflow-hidden outline-none"
     >
-      {/* ── Cinematic background: misty forest mountains, slow zoom + parallax ── */}
+      {/* ── Cinematic sunrise over forested mountains ── */}
       <div ref={bgRef} className="absolute -inset-y-12 inset-x-0 will-change-transform">
         <img
-          src={`${HERO_IMG}?auto=compress&cs=tinysrgb&w=1920`}
-          srcSet={`${HERO_IMG}?auto=compress&cs=tinysrgb&w=800 800w, ${HERO_IMG}?auto=compress&cs=tinysrgb&w=1280 1280w, ${HERO_IMG}?auto=compress&cs=tinysrgb&w=1920 1920w, ${HERO_IMG}?auto=compress&cs=tinysrgb&w=2400 2400w`}
-          sizes="100vw"
-          alt="ضباب الصباح يعانق غابات جبلية كثيفة عند شروق الشمس"
+          src={heroImg}
+          alt="شروق الشمس الذهبي فوق جبل مكسو بأشجار الصنوبر"
           className="w-full h-full object-cover object-center animate-zoom-slow"
           loading="eager"
           decoding="async"
+          width={1920}
+          height={1280}
         />
       </div>
 
