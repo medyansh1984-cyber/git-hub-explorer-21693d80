@@ -73,10 +73,10 @@ export default function Hero() {
           <img
             src="/img/logo.png"
             alt="شعار Greenova Life — الاستثمار في الإنسان"
-            width={288}
-            height={282}
-            className="relative w-56 md:w-72 h-auto object-contain animate-float
-                       drop-shadow-[0_12px_28px_rgba(6,24,17,0.55)]"
+            width={576}
+            height={564}
+            className="logo-crisp relative w-56 md:w-72 h-auto object-contain animate-float
+                       drop-shadow-[0_12px_28px_rgba(3,41,31,0.6)]"
           />
         </div>
 
