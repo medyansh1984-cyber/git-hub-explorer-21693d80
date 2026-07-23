@@ -43,8 +43,12 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-28">
           {/* Narrative (right in RTL) */}
           <div className="reveal-right">
-            <h2 className="section-heading text-4xl md:text-5xl mb-6">من نحن</h2>
-            <div className="w-16 h-0.5 bg-gold-sheen rounded-full mb-8" />
+            <div className="flex items-baseline gap-4 mb-6">
+              <span className="section-number" aria-hidden="true">01</span>
+              <p className="section-eyebrow">فصلٌ أوّل</p>
+            </div>
+            <h2 className="section-heading text-5xl md:text-6xl mb-6">من نحن</h2>
+            <div className="w-16 h-px bg-gold-sheen mb-8" />
             <p className="font-cairo text-lg md:text-xl text-dark-soft leading-loose mb-6 text-balance">
               منظمةٌ إنسانية وُلدت من إيمانٍ بسيط: أن نهضة المجتمعات تبدأ من
               نهضة أفرادها. نعمل على نشر المعرفة، ورعاية التنمية، وبناء
