@@ -1,0 +1,256 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ─────────────────────────────────────────────── */
+@layer base {
+  html {
+    direction: rtl;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply font-cairo text-dark bg-cream;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-cairo leading-tight;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  ::selection {
+    @apply bg-green-primary/90 text-cream;
+  }
+}
+
+/* ─── Utilities ─────────────────────────────────────────── */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Scroll reveal base states */
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale {
+    opacity: 0;
+    transition:
+      opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+
+  .reveal {
+    transform: translateY(44px);
+  }
+
+  .reveal-left {
+    transform: translateX(44px);
+  }
+
+  .reveal-right {
+    transform: translateX(-44px);
+  }
+
+  .reveal-scale {
+    transform: scale(0.94);
+  }
+
+  .reveal.visible,
+  .reveal-left.visible,
+  .reveal-right.visible,
+  .reveal-scale.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Stagger delay helpers (transition-delay, applied to reveals) */
+  .stagger-1 { transition-delay: 100ms; }
+  .stagger-2 { transition-delay: 200ms; }
+  .stagger-3 { transition-delay: 300ms; }
+  .stagger-4 { transition-delay: 400ms; }
+  .stagger-5 { transition-delay: 500ms; }
+}
+
+/* ─── Components ────────────────────────────────────────── */
+@layer components {
+  /* Glass navbar surface */
+  .glass-nav {
+    @apply bg-cream/70 backdrop-blur-xl border-b border-white/40
+           shadow-[0_8px_32px_-16px_rgba(11,61,46,0.25)];
+  }
+
+  /* Nav link with animated underline + active indicator */
+  .nav-link {
+    @apply relative font-cairo font-medium text-sm tracking-wide
+           transition-colors duration-300 py-2;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 right-1/2 translate-x-1/2 h-0.5 w-0
+           rounded-full bg-gold transition-all duration-300;
+  }
+
+  .nav-link:hover::after,
+  .nav-link[aria-current='true']::after {
+    @apply w-full;
+  }
+
+  /* Section label */
+  .section-eyebrow {
+    @apply font-cairo text-xs font-bold tracking-[0.25em] uppercase text-gold-dark;
+  }
+
+  .section-eyebrow-light {
+    @apply font-cairo text-xs font-bold tracking-[0.25em] uppercase text-gold-light;
+  }
+
+  /* Section heading */
+  .section-heading {
+    @apply font-amiri font-bold text-green-deep leading-snug;
+  }
+
+  /* Gold accent rule */
+  .gold-rule {
+    @apply w-16 h-0.5 bg-gold-sheen mx-auto rounded-full;
+  }
+
+  /* Gradient-border card: gradient wrapper + inner surface */
+  .gradient-border-card {
+    @apply relative rounded-3xl p-px transition-all duration-500
+           bg-gradient-to-b from-green-deep/10 via-gold/15 to-green-deep/10
+           hover:from-gold/60 hover:via-gold/25 hover:to-green-light/50
+           hover:-translate-y-1.5 hover:shadow-lift;
+  }
+
+  .gradient-border-card > .card-surface {
+    @apply relative h-full rounded-[calc(1.5rem-1px)] bg-white/95 p-8
+           transition-colors duration-500;
+  }
+
+  /* Icon ring for value/pillar cards */
+  .icon-ring {
+    @apply w-16 h-16 rounded-2xl flex items-center justify-center
+           bg-gradient-to-br from-green-mist to-gold-muted
+           ring-1 ring-green-primary/10 transition-all duration-500
+           group-hover:from-green-primary group-hover:to-green-deep
+           group-hover:shadow-gold-glow;
+  }
+
+  .icon-ring svg {
+    @apply text-green-primary transition-colors duration-500
+           group-hover:text-gold-light;
+  }
+
+  /* CTA Button — solid gold */
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-3 px-9 py-4 rounded-full
+           font-cairo font-bold text-dark bg-gold-sheen bg-[length:200%_auto]
+           shadow-gold-glow transition-all duration-500
+           hover:bg-[position:100%_center] hover:-translate-y-0.5 hover:shadow-lift
+           active:translate-y-0 active:scale-[0.98]
+           focus-visible:outline-none focus-visible:ring-2
+           focus-visible:ring-gold focus-visible:ring-offset-2;
+  }
+
+  /* CTA Button — deep green gradient */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-3 px-9 py-4 rounded-full
+           font-cairo font-bold text-cream bg-forest-gradient bg-[length:150%_auto]
+           shadow-soft transition-all duration-500
+           hover:bg-[position:100%_center] hover:-translate-y-0.5 hover:shadow-lift
+           active:translate-y-0 active:scale-[0.98]
+           focus-visible:outline-none focus-visible:ring-2
+           focus-visible:ring-green-primary focus-visible:ring-offset-2;
+  }
+
+  /* CTA Button — ghost on dark imagery */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-3 px-9 py-4 rounded-full
+           font-cairo font-semibold text-white border border-white/40
+           bg-white/5 backdrop-blur-sm transition-all duration-500
+           hover:bg-white/15 hover:border-white/70 hover:-translate-y-0.5
+           active:translate-y-0 active:scale-[0.98]
+           focus-visible:outline-none focus-visible:ring-2
+           focus-visible:ring-white/70 focus-visible:ring-offset-2
+           focus-visible:ring-offset-transparent;
+  }
+
+  /* Skip navigation link */
+  .skip-link {
+    @apply fixed top-3 right-3 z-[100] -translate-y-20 rounded-full
+           bg-green-deep px-6 py-3 font-cairo font-bold text-cream
+           shadow-lift transition-transform duration-300 focus:translate-y-0;
+  }
+}
+
+/* ─── Custom scrollbar ──────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f2eee5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#145a32, #0b3d2e);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c8a24a;
+}
+
+/* ─── Hero ambient particles ────────────────────────────── */
+.particle {
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(228, 200, 127, 0.9), transparent 70%);
+  filter: blur(1px);
+  pointer-events: none;
+}
+
+/* ─── Focus visible for accessibility ───────────────────── */
+:focus-visible {
+  outline: 2px solid #c8a24a;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ─── Reduced motion ────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+  }
+}
